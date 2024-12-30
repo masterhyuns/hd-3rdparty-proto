@@ -6,6 +6,7 @@ import RealGrid from "./pages/RealGrid";
 import {UploadProvider} from "../components/uploader/TusProvider";
 import TuiGrid from "./pages/TuiGrid";
 import Lexical from "./pages/Lexical";
+import Scorm from "./pages/Scorm";
 const router = createBrowserRouter([{
 	path: "/",
 	element: <Home/>
@@ -24,6 +25,9 @@ const router = createBrowserRouter([{
 },{
 	path: "/lexical",
 	element: <Lexical/>
+},{
+	path: "/ttt",
+	element: <Scorm/>
 }])
 
 export default function Router(){

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCORM Content Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    iframe {
+      width: 100%;
+      max-width: 1000px;
+      height: 600px;
+      border: 1px solid #ccc;
+    }
+    .controls {
+      margin-top: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>SCORM Content Viewer</h1>
+  <!-- SCORM Content Iframe -->
+  <iframe
+    id="scormContentIframe"
+    src="https://cloud.scorm.com/ScormEngineInterface/defaultui/player/modern.html?configuration=E3b2_rOKRLwDjLqHOsonT18efiHcQ49CyXzzaHQe3dXLZcrX15K0EbSGx4x9SoHiVwxlZsfb1BzIoSrBgPFq4Tg9tGxzSnOiKNR7YBoCdJF4he5hlIyP4DUHr6boDpscZApI2iU29aK14EAgofMZtvAVwKx22T9Ds0lv7D95azuM9_AahubJCEMsejruzRFsWJsHYr44UlVPeUhBzkJPv-fL11xyjpb-UrskTdrXzFnxSzz4qh7qNVoxqXeG5oqfxvTYvJ9_t6BLXGwvhRD48k79c0J4S9F_lCTDrPvucTjwjWtdGzTNUBiinbYjxASB4vKOC8tGpJSjZVlShmYjl2jzey01zB96oEiMYMBcNkkazri8qjXJKNUoMh6HkYcl8m9siMZTY3RwmrA8eIg8kPNB_acyNG35j0jjmPXXSaK1XFFkg9QB5pMREItV6xhkJX2dC6ErGj76A9UG_uJubGfPFf2iBgDZdg4Nl4udK9CilO14OfbEWlVLkA5192RzSO-KPP3hdXSr2Qew3AnBD8lJme9eJRCzo_lGRL9lGOvvJvD4GsV5QxScrV6CMhes83h61yrTkE7tuQcgc8B1OHIGZta-1I639DZTRZIeZAUcmOy9onXJvh_Da_HMcoi4iwHJGLS1xpBOXy1hz7sfIhRPKwSAZd7NvNI9NmV7A7fnnltZtnzqMfJvIewcdan2HryjN2QdhTZx2pLrL2salchOoE34kEeOMQcc5bx0MynDcUtwWNQxlhZILKJobJfnKtYHdErlIYKycql_Gir9VoGx_zSWGo6wnQ2jQDJuOBkqSCUkAI2_pEpa5UOQ-OcywvJH97r6pAB-OaBS1kAaRNPtdzeNzSVkQ-GKFaOkZ8OeGLUsK9GrQzYcyRr14ZOFZfetGVcfuH1-YG3i0aJeFFPZaQm18d-o4lp7PuU5CEaVtTv0EHmJ66Dh14llCJxJbuOw2_129yVII6KYbYHvLfGSakLfUpT65lngKPVw4-8JAAR39vutjbGmktqcXwKjF8lXlzi-eSB9QgMgOUpqxJxvfks6xsaGlbTjIndMoKoVKrLI94BE9edzpbO6pheScvSkWnPUseblis8&preventRightClick=false&cc=ko_KR&cache=21.1.35.500&playerConfUrl=j&package=KZxMq2iXQZK_qDHwbBgquIIX4_C4iZ2WeMCCxoBa7YqYerlwSkcoJr7colAbyh4aDpv9kTUUcY-Fzyh7dWvr-2hSBGxzwDuC44FImm9ylC186wyVdl6u5z2skP-ZxlLXZC5KOg0Rd4z2YxXS6rjSs7_7wbQryiHRc7pIv4s&redirectUrl=https%3A%2F%2Fapp.cloud.scorm.com%2Fsc%2Fuser%2FPostLaunch%3FappId%3DK9144O4JY4%26realmId%3Df1e5ca7e-53d0-4aa5-a4ab-2464f3f45a4e%26registrationId%3D51454cd1-6d21-4522-88f6-e35e40154b99%26redirectUrl%3Dhttps%253A%252F%252Fapp.cloud.scorm.com%252Fsc%252Fuser%252FCourse%253FcourseId%253DContentPackagingOneFilePerSCO_SCORM12730d1178-7327-4c8c-9b64-166d40e50c34%2526appId%253DK9144O4JY4%2526preserveMessages%253Dtrue&registration=zS_Wxc_fLW84M7NkudQOHZ2reFus61zJeGT-BO4Fe4mnFKZLOXXySkcKGHOjuoBtZhBjCuikcB8FCyKnDVDz5jKYcMhViY3SD638CngMnkT-4Xx8h4hpi73G24_7Na8&tracking=true&forceReview=false&player=modern&ts=20241226232426"
+  title="SCORM Content"
+  allowfullscreen
+  ></iframe>
+  
+  <!-- Controls for Testing -->
+  <div class="controls">
+    <button id="initializeBtn">Initialize SCORM</button>
+    <button id="getScoreBtn">Get Score</button>
+    <button id="setScoreBtn">Set Score</button>
+    <button id="terminateBtn">Terminate SCORM</button>
+  </div>
+  <div id="output" style="margin-top: 20px; font-size: 14px;"></div>
+</div>
+
+<script>
+  // SCORM API Wrapper (Simple Example)
+  const SCORM = {
+    findAPI: function () {
+      let win = window;
+      for (let i = 0; i < 10; i++) {
+        if (win.API || win.API_1484_11) {
+          return win.API || win.API_1484_11;
+        }
+        if (win.parent === win) break;
+        win = win.parent;
+      }
+      return null;
+    },
+    initialize: function (api) {
+      return api.Initialize ? api.Initialize("") : api.LMSInitialize("");
+    },
+    terminate: function (api) {
+      return api.Terminate ? api.Terminate("") : api.LMSFinish("");
+    },
+    getValue: function (api, key) {
+      return api.GetValue ? api.GetValue(key) : api.LMSGetValue(key);
+    },
+    setValue: function (api, key, value) {
+      return api.SetValue ? api.SetValue(key, value) : api.LMSSetValue(key, value);
+    },
+    commit: function (api) {
+      return api.Commit ? api.Commit("") : api.LMSCommit("");
+    },
+    getLastError: function (api) {
+      return api.GetLastError ? api.GetLastError() : api.LMSGetLastError();
+    },
+  };
+  
+  const api = SCORM.findAPI();
+  console.log('api => ', api)
+  document.getElementById("initializeBtn").addEventListener("click", () => {
+    if (api) {
+      const result = SCORM.initialize(api);
+      document.getElementById("output").innerText = result ? "SCORM Initialized" : "Initialization Failed";
+    } else {
+      document.getElementById("output").innerText = "SCORM API not found.";
+    }
+  });
+  
+  document.getElementById("getScoreBtn").addEventListener("click", () => {
+    if (api) {
+      const score = SCORM.getValue(api, "cmi.score.raw");
+      document.getElementById("output").innerText = `Score: ${score}`;
+    } else {
+      document.getElementById("output").innerText = "SCORM API not found.";
+    }
+  });
+  
+  document.getElementById("setScoreBtn").addEventListener("click", () => {
+    if (api) {
+      const success = SCORM.setValue(api, "cmi.score.raw", "95");
+      document.getElementById("output").innerText = success ? "Score Set to 95" : "Failed to Set Score";
+      SCORM.commit(api);
+    } else {
+      document.getElementById("output").innerText = "SCORM API not found.";
+    }
+  });
+  
+  document.getElementById("terminateBtn").addEventListener("click", () => {
+    if (api) {
+      const result = SCORM.terminate(api);
+      document.getElementById("output").innerText = result ? "SCORM Terminated" : "Termination Failed";
+    } else {
+      document.getElementById("output").innerText = "SCORM API not found.";
+    }
+  });
+</script>
+</body>
+</html>
