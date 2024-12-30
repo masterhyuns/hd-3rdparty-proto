@@ -1,6 +1,5 @@
 /*@ts-ignore*/
-import ScormPlayer from "../../components/scorm/ScormPlayer";
-import ScormPopup from "../../components/scorm/ScormPopup";
+import KiaScormPlayer from "../../components/scorm/KiaScormPlayer";
 
 const Scorm = () => {
 	/*return <ScormProvider version="1.2" debug={true}>
@@ -15,12 +14,10 @@ const Scorm = () => {
 	return <div>
 		<h1>SCORM Integration Example</h1>
 		<p>Choose a method to launch the SCORM content:</p>
-		
+		<KiaScormPlayer/>
 		{/* iframe 방식 */}
-		<ScormPlayer/>
 		
 		{/* 팝업 방식 */}
-		<ScormPopup/>
 	</div>
 }
 export default Scorm;
