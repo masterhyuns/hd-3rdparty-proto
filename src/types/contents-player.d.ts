@@ -10,9 +10,10 @@ declare global {
 		API_1484_11?: {
 			Initialize: (param: string) => string;
 			SetValue: (key: string, value: string) => string;
-			GetValue: (key: string) => string;
+			GetValue: (key: string) => string | null;
 			Commit: (param: string) => string;
 			Terminate: (param: string) => string;
+			GetLastError: () => string;
 		};
 	}
 }

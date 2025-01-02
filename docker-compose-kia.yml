@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  react-app:
+    container_name: react-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000" # React 개발 서버
+    volumes:
+      - ./src:/app/src # React 소스 디렉토리를 마운트
+      - ./public:/app/public # public 디렉토리도 마운트
+    networks:
+      - react-network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    dns:
+      - 8.8.8.8 # Google DNS
+      - 1.1.1.1 # Cloudflare DNS
+    ports:
+      - "443:443" # HTTPS
+    volumes:
+      - ./nginx-kia.conf:/etc/nginx/nginx.conf:ro # NGINX 설정
+      - ./certs/kda-kia:/etc/nginx/certs:ro # SSL 인증서
+    depends_on:
+      - react-app
+    networks:
+      - react-network
+
+networks:
+  react-network:
+    driver: bridge

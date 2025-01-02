@@ -1,7 +1,7 @@
 # React Application Dockerfile
 FROM node:20-alpine
 ENV HOST=0.0.0.0
-ENV PUBLIC_URL=https://cloud.scorm.com
+ENV PUBLIC_URL=https://kda.kia.com
 # Git 설치
 RUN apk add --no-cache git
 
